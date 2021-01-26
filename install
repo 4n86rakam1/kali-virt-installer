@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+name_prefix="${NAME_PREFIX:-my-kali-auto}"
+name_suffix="$(date +%Y-%m-%d-%H%M%S)"
+vcpus="${VCPUS:-8}"
+ram_size="${RAM:-10000}"
+disk_size="${DISK_SIZE:-60}"
+location="${LOCATION:-http://ftp.riken.jp/Linux/kali/dists/kali-rolling/main/installer-amd64/}"
+extra_args="${EXTRA_ARGS:-DEBCONF_DEBUG=5 mirror/http/proxy=http://192.168.0.10:3142}"
+
+virt-install \
+  --connect qemu:///system \
+  --name "${name_prefix}-${name_suffix}" \
+  --ram "${ram_size}" \
+  --disk "size=${disk_size},format=qcow2" \
+  --vcpus "${vcpus}" \
+  --osinfo detect=on,name=linux2020 \
+  --noautoconsole \
+  --location "${location}" \
+  --initrd-inject preseed.cfg \
+  --initrd-inject post.sh \
+  --extra-args "${extra_args}"
