@@ -179,9 +179,11 @@ sed -e 's/^PROMPT_ALTERNATIVE=twoline/PROMPT_ALTERNATIVE=oneline/' \
 gunzip /usr/share/wordlists/rockyou.txt.gz
 
 # my customize
-git clone https://github.com/maya2250/dotfiles.git "${ROOT_USER_DIR}"/.dotfiles
+git clone https://github.com/4n86rakam1/dotfiles.git "${ROOT_USER_DIR}"/.dotfiles
 cd "${ROOT_USER_DIR}"/.dotfiles/ || exit 1
 HOME=/root ./bootstrap/dotfiles_symlink
 
+wget -q https://github.com/4n86rakam1.keys -O "${ROOT_USER_DIR}"/.ssh/authorized_keys
+chmod 600 "${ROOT_USER_DIR}"/.ssh/authorized_keys
 # finished
 echo Installation finished. > "${ROOT_USER_DIR}/installation-$(date +%Y-%m-%d-%H%M%S).txt"
