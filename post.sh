@@ -158,10 +158,25 @@ Zoom%20out=Ctrl+-
 Zoom%20reset=Ctrl+0
 EOF
 
-cat <<EOF >> "${ROOT_USER_DIR}"/.zshrc
+cat <<'EOF' >> "${ROOT_USER_DIR}"/.zshrc
 setopt share_history
 bindkey -e
 bindkey '\ef' emacs-forward-word
+
+# ref: https://www.emacswiki.org/emacs/TrampMode#h5o-9
+if [[ "$TERM" == "dumb" ]]
+then
+  unsetopt zle
+  unsetopt prompt_cr
+  unsetopt prompt_subst
+  if whence -w precmd >/dev/null; then
+      unfunction precmd
+  fi
+  if whence -w preexec >/dev/null; then
+      unfunction preexec
+  fi
+  PS1='$ '
+fi
 EOF
 
 chsh -s /usr/bin/zsh root
