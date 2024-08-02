@@ -200,5 +200,103 @@ HOME=/root ./bootstrap/dotfiles_symlink
 
 wget -q https://github.com/4n86rakam1.keys -O "${ROOT_USER_DIR}"/.ssh/authorized_keys
 chmod 600 "${ROOT_USER_DIR}"/.ssh/authorized_keys
+
+apt_packages_list=(
+    7zip
+    altdns
+    arjun
+    beef-xss
+    binwalk
+    bloodhound
+    borgbackup
+    bzip2
+    cargo
+    cewl
+    checksec
+    cherrytree
+    cisco-auditing-tool
+    cmake
+    crackmapexec
+    dnsenum
+    dnsrecon
+    docker.io
+    enum4linux
+    evil-winrm
+    exploitdb
+    eyewitness
+    fcrackzip
+    ffmpeg
+    ffuf
+    foremost
+    gdb
+    ghidra
+    git
+    glusterfs-cli
+    glusterfs-server
+    gnupg
+    gobuster
+    golang-go
+    gzip
+    hashcat
+    htop
+    httprobe
+    hydra
+    imagemagick
+    john
+    jq
+    keepass2
+    ltrace
+    masscan
+    mawk
+    mongodb-clients
+    naabu
+    neo4j
+    neofetch
+    nikto
+    npm
+    nuclei
+    peass
+    pspy
+    recon-ng
+    responder
+    rlwrap
+    seclists
+    sendemail
+    shellcheck
+    shellter
+    sherlock
+    sleuthkit
+    smbclient
+    smbmap
+    smtp-user-enum
+    socat
+    spice-vdagent
+    sqlmap
+    squashfs-tools
+    stegcracker
+    steghide
+    strace
+    subfinder
+    sublist3r
+    traceroute
+    tzdata
+    wfuzz
+    wget
+    whatweb
+    whois
+    wine64
+    winetricks
+    wordlists
+    wpscan
+    xq
+    xsel
+    xxd
+    xz-utils
+    yq
+    zlib1g
+)
+
+DEBIAN_FRONTEND=noninteractive apt-get install -qq "${apt_packages_list[@]}"
+
 # finished
 echo Installation finished. > "${ROOT_USER_DIR}/installation-$(date +%Y-%m-%d-%H%M%S).txt"
