@@ -177,6 +177,14 @@ then
   fi
   PS1='$ '
 fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+alias code="code --unity-launch --no-sandbox --user-data-dir=~/.config/Code --disable-gpu-sandbox"
+
+export LESS="-asXFMMRqix8 --mouse --wheel-lines=3"
 EOF
 
 chsh -s /usr/bin/zsh root
