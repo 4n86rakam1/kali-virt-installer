@@ -63,100 +63,6 @@ cat <<EOF > "${ROOT_USER_DIR}"/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-po
 </channel>
 EOF
 
-mkdir -p "${ROOT_USER_DIR}"/.config/qterminal.org
-cat <<EOF > "${ROOT_USER_DIR}"/.config/qterminal.org/qterminal.ini
-[General]
-AskOnExit=false
-BookmarksFile=/root/.config/qterminal.org/qterminal_bookmarks.xml
-BookmarksVisible=true
-Borderless=true
-ChangeWindowIcon=false
-ChangeWindowTitle=false
-ConfirmMultilinePaste=false
-FixedTabWidth=true
-FixedTabWidthValue=250
-HideTabBarWithOneTab=true
-HistoryLimited=false
-HistoryLimitedTo=1000
-KeyboardCursorShape=2
-LastWindowMaximized=true
-MenuVisible=false
-MotionAfterPaste=0
-SavePosOnExit=false
-SaveSizeOnExit=true
-ScrollbarPosition=0
-ShowCloseTabButton=false
-TabBarless=true
-TabsPosition=0
-Term=xterm-256color
-TerminalBackgroundImage=
-TerminalMargin=6
-TerminalTransparency=0
-TerminalsPreset=0
-TrimPastedTrailingNewlines=false
-UseBookmarks=false
-UseCWD=false
-colorScheme=Linux
-emulation=linux
-enabledBidiSupport=true
-fontFamily=Bitstream Vera Sans Mono
-fontSize=10
-guiStyle=
-highlightCurrentTerminal=false
-showTerminalSizeHint=true
-version=0.14.1
-
-[DropMode]
-Height=99
-KeepOpen=false
-ShortCut=Alt+F12
-ShowOnStart=true
-Width=99
-
-[MainWindow]
-ApplicationTransparency=8
-isMaximized=false
-pos=@Point(1920 0)
-size=@Size(1920 1056)
-state=@ByteArray(\0\0\0\xff\0\0\0\0\xfd\0\0\0\x1\0\0\0\0\0\0\0\0\0\0\0\0\xfc\x2\0\0\0\x1\xfb\0\0\0&\0\x42\0o\0o\0k\0m\0\x61\0r\0k\0s\0\x44\0o\0\x63\0k\0W\0i\0\x64\0g\0\x65\0t\0\0\0\0\0\xff\xff\xff\xff\0\0\0u\0\xff\xff\xff\0\0\a\x80\0\0\x4 \0\0\0\x4\0\0\0\x4\0\0\0\b\0\0\0\b\xfc\0\0\0\0)
-
-[Sessions]
-size=0
-
-[Shortcuts]
-Add%20Tab=
-Bottom%20Subterminal=
-Clear%20Active%20Terminal=
-Close%20Tab=
-Collapse%20Subterminal=
-Copy%20Selection=Ctrl+Shift+C
-Find=
-Fullscreen=F11
-Hide%20Window%20Borders=
-Left%20Subterminal=
-Move%20Tab%20Left=
-Move%20Tab%20Right=
-New%20Window=
-Next%20Tab=
-Next%20Tab%20in%20History=
-Paste%20Clipboard=Ctrl+Shift+V
-Paste%20Selection=Shift+Ins
-Preferences...=
-Previous%20Tab=
-Previous%20Tab%20in%20History=
-Quit=
-Rename%20Session=
-Right%20Subterminal=
-Show%20Tab%20Bar=
-Split%20Terminal%20Horizontally=
-Split%20Terminal%20Vertically=
-Toggle%20Bookmarks=
-Toggle%20Menu=
-Top%20Subterminal=
-Zoom%20in="Ctrl+="
-Zoom%20out=Ctrl+-
-Zoom%20reset=Ctrl+0
-EOF
 
 cat <<'EOF' >> "${ROOT_USER_DIR}"/.zshrc
 setopt share_history
@@ -205,6 +111,7 @@ gunzip /usr/share/wordlists/rockyou.txt.gz
 git clone https://github.com/4n86rakam1/dotfiles.git "${ROOT_USER_DIR}"/.dotfiles
 cd "${ROOT_USER_DIR}"/.dotfiles/ || exit 1
 HOME=/root ./bootstrap/dotfiles_symlink
+HOME=/root ./bootstrap/qterminal
 
 wget -q https://github.com/4n86rakam1.keys -O "${ROOT_USER_DIR}"/.ssh/authorized_keys
 chmod 600 "${ROOT_USER_DIR}"/.ssh/authorized_keys
