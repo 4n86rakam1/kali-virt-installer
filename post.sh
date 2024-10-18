@@ -134,7 +134,6 @@ apt_packages_list=(
     crackmapexec
     dnsenum
     dnsrecon
-    docker.io
     enum4linux
     evil-winrm
     exploitdb
