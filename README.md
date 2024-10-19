@@ -9,8 +9,11 @@
 ```bash
 ./install
 
-# or you can set argument as follows:
+# you can set argument as follows:
 # DISK_SIZE="120" EXTRA_ARGS="DEBCONF_DEBUG=5 mirror/http/proxy=http://192.168.1.123:3142" ./install
+
+# debug by priority=low
+# EXTRA_ARGS="priority=low mirror/http/proxy=http://192.168.0.103:3142" ./install
 ```
 
 You can customize a post install script `post.sh`.
