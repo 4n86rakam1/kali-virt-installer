@@ -362,9 +362,6 @@ cd "${ROOT_USER_DIR}"/.dotfiles/ || exit 1
 HOME=/root ./bootstrap/dotfiles_symlink
 HOME=/root ./bootstrap/qterminal
 
-wget -q https://github.com/4n86rakam1.keys -O "${ROOT_USER_DIR}"/.ssh/authorized_keys
-chmod 600 "${ROOT_USER_DIR}"/.ssh/authorized_keys
-
 apt_packages_list=(
     7zip
     altdns
