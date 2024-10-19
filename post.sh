@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/zsh
 
 ROOT_USER_DIR=/root
 
