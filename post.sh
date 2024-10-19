@@ -336,7 +336,7 @@ then
 fi
 
 export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 alias code="code --unity-launch --no-sandbox --user-data-dir=~/.config/Code --disable-gpu-sandbox"
@@ -464,6 +464,18 @@ apt_packages_list=(
 )
 
 DEBIAN_FRONTEND=noninteractive apt-get install -qq "${apt_packages_list[@]}"
+
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+. ~/.zshrc
+pyenv install 3
+
+git clone https://github.com/4n86rakam1/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles/ || exit 1
+./bootstrap/dotfiles_symlink
+./bootstrap/qterminal
+./bootstrap/docker
+./bootstrap/deb
+./bootstrap/vscode
 
 # finished
 echo -e "$(date +%Y-%m-%d-%H%M%S)\n$(id)\nInstallation finished." > ~/installation-log.txt
