@@ -5,10 +5,12 @@ ROOT_USER_DIR=/root
 # change left CapsLock key to Ctrl
 sed -i -e 's/XKBOPTIONS=""/XKBOPTIONS="ctrl:nocaps"/g' /etc/default/keyboard
 
-# xfce setting
-mkdir -p "${ROOT_USER_DIR}"/.config/xfce4/xfconf/xfce-perchannel-xml
+export HOME=/root
 
-cat <<EOF > "${ROOT_USER_DIR}"/.config/xfce4/xfconf/xfce-perchannel-xml/displays.xml
+# xfce setting
+mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml
+
+cat <<EOF > ~/.config/xfce4/xfconf/xfce-perchannel-xml/displays.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <channel name="displays" version="1.0">
   <property name="ActiveProfile" type="string" value="Default"/>
@@ -34,7 +36,7 @@ cat <<EOF > "${ROOT_USER_DIR}"/.config/xfce4/xfconf/xfce-perchannel-xml/displays
 </channel>
 EOF
 
-cat <<EOF > "${ROOT_USER_DIR}"/.config/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml
+cat <<EOF > ~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <channel name="keyboards" version="1.0">
   <property name="Default" type="empty">
@@ -47,7 +49,7 @@ cat <<EOF > "${ROOT_USER_DIR}"/.config/xfce4/xfconf/xfce-perchannel-xml/keyboard
 </channel>
 EOF
 
-cat <<EOF > "${ROOT_USER_DIR}"/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+cat <<EOF > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <channel name="xfce4-power-manager" version="1.0">
@@ -63,7 +65,7 @@ cat <<EOF > "${ROOT_USER_DIR}"/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-po
 </channel>
 EOF
 
-cat <<EOF > "${ROOT_USER_DIR}"/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+cat <<EOF > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <channel name="xfce4-keyboard-shortcuts" version="1.0">
@@ -224,7 +226,7 @@ cat <<EOF > "${ROOT_USER_DIR}"/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-ke
 </channel>
 EOF
 
-cat <<EOF > "${ROOT_USER_DIR}"/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
+cat <<EOF > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <channel name="xfwm4" version="1.0">
@@ -313,7 +315,7 @@ cat <<EOF > "${ROOT_USER_DIR}"/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xm
 </channel>
 EOF
 
-cat <<'EOF' >> "${ROOT_USER_DIR}"/.zshrc
+cat <<'EOF' >> ~/.zshrc
 setopt share_history
 bindkey -e
 bindkey '\ef' emacs-forward-word
@@ -347,7 +349,7 @@ sed -e 's/^PROMPT_ALTERNATIVE=twoline/PROMPT_ALTERNATIVE=oneline/' \
     -e 's/^bindkey ^P toggle_oneline_prompt/# bindkey ^P toggle_oneline_prompt/' \
     -e 's/^HISTSIZE=1000/HISTSIZE=9999999999/' \
     -e 's/^SAVEHIST=2000/SAVEHIST=9999999999/' \
-    -i "${ROOT_USER_DIR}"/.zshrc
+    -i ~/.zshrc
 
 chsh -s /usr/bin/zsh root
 
@@ -459,4 +461,4 @@ apt_packages_list=(
 DEBIAN_FRONTEND=noninteractive apt-get install -qq "${apt_packages_list[@]}"
 
 # finished
-echo Installation finished. > "${ROOT_USER_DIR}/installation-$(date +%Y-%m-%d-%H%M%S).txt"
+echo -e "$(date +%Y-%m-%d-%H%M%S)\n$(id)\nInstallation finished." > ~/installation-log.txt
