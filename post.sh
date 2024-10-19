@@ -407,6 +407,10 @@ apt_packages_list=(
     john
     jq
     keepass2
+    libbz2-dev
+    liblzma-dev
+    libreadline-dev
+    libsqlite3-dev
     ltrace
     masscan
     mawk
@@ -440,6 +444,7 @@ apt_packages_list=(
     strace
     subfinder
     sublist3r
+    tk-dev
     traceroute
     tzdata
     wfuzz
