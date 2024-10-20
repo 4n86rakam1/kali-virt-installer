@@ -477,5 +477,8 @@ cd ~/.dotfiles/ || exit 1
 ./bootstrap/deb
 ./bootstrap/vscode
 
+sed -i 's|Exec=/usr/bin/google-chrome-stable %U|Exec=/usr/bin/google-chrome-stable --no-sandbox %U|' /usr/share/applications/google-chrome.desktop
+sed -i 's|Exec=/usr/bin/chromium %U|Exec=/usr/bin/chromium --no-sandbox %U|' /usr/share/applications/chromium.desktop
+
 # finished
 echo -e "$(date +%Y-%m-%d-%H%M%S)\n$(id)\nInstallation finished." > ~/installation-log.txt
