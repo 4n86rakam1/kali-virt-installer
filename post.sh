@@ -1,7 +1,5 @@
 #!/usr/bin/zsh
 
-ROOT_USER_DIR=/root
-
 # change left CapsLock key to Ctrl
 sed -i -e 's/XKBOPTIONS=""/XKBOPTIONS="ctrl:nocaps"/g' /etc/default/keyboard
 
@@ -359,8 +357,8 @@ chsh -s /usr/bin/zsh root
 gunzip /usr/share/wordlists/rockyou.txt.gz
 
 # my customize
-git clone https://github.com/4n86rakam1/dotfiles.git "${ROOT_USER_DIR}"/.dotfiles
-cd "${ROOT_USER_DIR}"/.dotfiles/ || exit 1
+git clone https://github.com/4n86rakam1/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles/ || exit 1
 HOME=/root ./bootstrap/dotfiles_symlink
 HOME=/root ./bootstrap/qterminal
 
