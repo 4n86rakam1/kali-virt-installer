@@ -357,11 +357,6 @@ chsh -s /usr/bin/zsh root
 gunzip /usr/share/wordlists/rockyou.txt.gz
 
 # my customize
-git clone https://github.com/4n86rakam1/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles/ || exit 1
-HOME=/root ./bootstrap/dotfiles_symlink
-HOME=/root ./bootstrap/qterminal
-
 apt_packages_list=(
     7zip
     altdns
