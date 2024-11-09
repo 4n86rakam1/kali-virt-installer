@@ -432,6 +432,7 @@ apt_packages_list=(
     spice-vdagent
     sqlmap
     squashfs-tools
+    sshpass
     stegcracker
     steghide
     strace
