@@ -340,6 +340,9 @@ eval "$(pyenv init -)"
 alias code="code --unity-launch --no-sandbox --user-data-dir=~/.config/Code --disable-gpu-sandbox"
 
 export LESS="-asXFMMRqix8 --mouse --wheel-lines=3"
+
+# https://github.com/zsh-users/zsh-autosuggestions/issues/673
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 EOF
 
 sed -e 's/^PROMPT_ALTERNATIVE=twoline/PROMPT_ALTERNATIVE=oneline/' \
