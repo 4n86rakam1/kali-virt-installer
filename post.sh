@@ -462,10 +462,6 @@ apt_packages_list=(
 
 DEBIAN_FRONTEND=noninteractive apt-get install -qq "${apt_packages_list[@]}"
 
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-. ~/.zshrc
-pyenv install 3
-
 git clone https://github.com/4n86rakam1/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles/ || exit 1
 ./bootstrap/dotfiles_symlink
